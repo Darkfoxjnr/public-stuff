@@ -13,7 +13,7 @@ while _G.E_Spammer_Global do
     keyrelease(0x45)
 end
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkfoxjnr/darkfoxjnr_hub/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkfoxjnr/public-stuff/main/source.lua"))()
 
 local Window = Library.CreateLib("TOH", "Sentinel")
 local Main = Window:NewTab("main")
