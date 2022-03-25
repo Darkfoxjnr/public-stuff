@@ -1,4 +1,5 @@
 _G.E_Spammer_Global = false
+local Roblox_User_Name = game.players.LocalPlayer.Name
 
 while _G.E_Spammer_Global do
     keypress(0x45)
@@ -12,17 +13,28 @@ while _G.E_Spammer_Global do
     keyrelease(0x45)
 end
 
-local Config = {
-    WindowName = "Xens a nigger",
-	Color = Color3.fromRGB(166, 0, 255),
-	Keybind = Enum.KeyCode.RightControl
-}
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkfoxjnr/darkfoxjnr_hub/main/source.lua"))()
 
-local Library = loadstring(game:HttpGet("https://dark-exe.000webhostapp.com/SpookyHub_free/lib.lua"))()
-local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+local Window = Library.CreateLib("TOH", "Sentinel")
+local Main = Window:NewTab("main")
+local Main4 = Window:NewTab("Credits")
 
-local Tab1 = Window:CreateTab("main")
+   CoreGui:SetCore("SendNotification", {
+	Title = "Loaded!";
+	Text = "Made by DarkFoxJnr#6086";
+	Duration = 5;
+})
 
-local Toggle1 = Section1:CreateToggle("Aimbot", nil, function(Enable)
-    _G.E_Spammer_Global = Enable
+local MainSection = Main:NewSection("options")
+
+
+MainSection:NewButton("deliver", "deliver", function()
+	local args = {
+    		[1] = workspace.Offices["Small Office ["Roblox_User_Name.."]"]
+	}
+	game:GetService("Players").LocalPlayer.Character.Crate.Server.Event:FireServer(unpack(args))
 end)
+
+MainSection:NewToggle("tap", "clicks for you", function(t)
+	_G.E_Spammer_Global = t	
+end
